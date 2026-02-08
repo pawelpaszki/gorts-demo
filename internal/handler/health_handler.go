@@ -91,6 +91,7 @@ func (h *HealthHandler) handleHealth(w http.ResponseWriter, r *http.Request) {
 }
 
 // handleLiveness is the Kubernetes liveness probe endpoint.
+// Returns 200 OK if the process is alive and can handle requests.
 func (h *HealthHandler) handleLiveness(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
