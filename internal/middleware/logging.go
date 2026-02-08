@@ -45,10 +45,10 @@ func Logging(next http.Handler) http.Handler {
 		// Call next handler
 		next.ServeHTTP(wrapped, r)
 
-		// Log request details
+		// Log request details with timing
 		duration := time.Since(start)
 		log.Printf(
-			"%s %s %d %s %d bytes",
+			"[HTTP] %s %s | %d | %s | %d bytes",
 			r.Method,
 			r.URL.Path,
 			wrapped.statusCode,
