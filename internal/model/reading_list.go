@@ -3,6 +3,8 @@ package model
 import (
 	"errors"
 	"time"
+
+	"github.com/pawelpaszki/gorts-demo/pkg/stringutil"
 )
 
 // ReadingList represents a user's collection of books to read.
@@ -59,4 +61,9 @@ func (r *ReadingList) ContainsBook(bookID string) bool {
 		}
 	}
 	return false
+}
+
+// Slug returns a URL-friendly version of the reading list name.
+func (r *ReadingList) Slug() string {
+	return stringutil.Slugify(r.Name)
 }
