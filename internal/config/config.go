@@ -104,6 +104,11 @@ func (c *Config) Address() string {
 	return c.Server.Host + ":" + strconv.Itoa(c.Server.Port)
 }
 
+// IsDevelopment returns true if running in development mode.
+func (c *Config) IsDevelopment() bool {
+	return getEnv("APP_ENV", "development") == "development"
+}
+
 // getEnv returns the value of an environment variable or a default.
 func getEnv(key, defaultValue string) string {
 	if value := os.Getenv(key); value != "" {
