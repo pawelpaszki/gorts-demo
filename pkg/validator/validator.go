@@ -23,8 +23,10 @@ var (
 )
 
 // NotEmpty validates that a string is not empty after trimming whitespace.
+// Returns ErrRequired if the value is empty or contains only whitespace.
 func NotEmpty(value string) error {
-	if strings.TrimSpace(value) == "" {
+	trimmed := strings.TrimSpace(value)
+	if trimmed == "" {
 		return ErrRequired
 	}
 	return nil
