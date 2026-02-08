@@ -24,15 +24,13 @@ func NewAuthorService(repo *repository.AuthorRepository) *AuthorService {
 }
 
 // CreateAuthor validates and creates a new author.
+// Returns ErrInvalidAuthor if validation fails.
 func (s *AuthorService) CreateAuthor(author *model.Author) error {
 	if err := author.Validate(); err != nil {
 		return fmt.Errorf("%w: %v", ErrInvalidAuthor, err)
 	}
 
-	if err := s.repo.Create(author); err != nil {
-		return err
-	}
-	return nil
+	return s.repo.Create(author)
 }
 
 // GetAuthor retrieves an author by ID.
