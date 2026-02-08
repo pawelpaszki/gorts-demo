@@ -38,12 +38,12 @@ func TestBook_Validate(t *testing.T) {
 			name: "title too long",
 			book: Book{
 				ID:       "book-1",
-				Title:    strings.Repeat("a", 201),
+				Title:    strings.Repeat("a", 256),
 				ISBN:     "978-0134190440",
 				AuthorID: "author-1",
 			},
 			wantErr: true,
-			errMsg:  "title must be 200 characters or less",
+			errMsg:  "title must be 255 characters or less",
 		},
 		{
 			name: "title at max length",

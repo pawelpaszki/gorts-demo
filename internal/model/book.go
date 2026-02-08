@@ -23,8 +23,8 @@ func (b *Book) Validate() error {
 	if b.Title == "" {
 		return errors.New("title is required")
 	}
-	if len(b.Title) > 200 {
-		return errors.New("title must be 200 characters or less")
+	if len(b.Title) > 255 {
+		return errors.New("title must be 255 characters or less")
 	}
 	if b.ISBN == "" {
 		return errors.New("isbn is required")
