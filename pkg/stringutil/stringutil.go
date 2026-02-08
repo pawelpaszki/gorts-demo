@@ -49,3 +49,8 @@ func Capitalize(s string) string {
 	runes[0] = unicode.ToUpper(runes[0])
 	return string(runes)
 }
+
+// ToLowerTrimmed returns a lowercase, trimmed version of the string.
+func ToLowerTrimmed(s string) string {
+	return strings.ToLower(strings.TrimSpace(s))
+}
