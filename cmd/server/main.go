@@ -15,7 +15,7 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Bookshelf API v0.1.0")
+		fmt.Fprintln(w, "Bookshelf API v0.2.0")
 	})
 
 	addr := ":" + port
