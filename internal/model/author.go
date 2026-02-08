@@ -29,3 +29,8 @@ func (a *Author) Validate() error {
 	}
 	return nil
 }
+
+// HasBio returns true if the author has a biography.
+func (a *Author) HasBio() bool {
+	return a.Bio != ""
+}
