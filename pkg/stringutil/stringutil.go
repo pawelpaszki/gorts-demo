@@ -18,6 +18,8 @@ func Truncate(s string, maxLen int) string {
 }
 
 // Slugify converts a string to a URL-friendly slug.
+// It lowercases the input, replaces spaces and underscores with dashes,
+// removes special characters, and collapses consecutive dashes.
 func Slugify(s string) string {
 	s = strings.ToLower(s)
 	s = strings.TrimSpace(s)
