@@ -120,12 +120,18 @@ func RequireRole(roles ...string) func(http.Handler) http.Handler {
 }
 
 // GetUser retrieves the authenticated user from the context.
+// Returns nil if no user is present or if the context value is not a *User.
 func GetUser(ctx context.Context) *User {
 	user, ok := ctx.Value(UserContextKey).(*User)
 	if !ok {
 		return nil
 	}
 	return user
+}
+
+// IsAuthenticated checks if the request context contains an authenticated user.
+func IsAuthenticated(ctx context.Context) bool {
+	return GetUser(ctx) != nil
 }
 
 // parseBasicAuth parses the Authorization header for Basic auth.
