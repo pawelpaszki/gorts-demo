@@ -122,6 +122,7 @@ func (r *BookRepository) FindByAuthor(authorID string) []*model.Book {
 // Count returns the total number of books.
 func (r *BookRepository) Count() int {
 	r.mu.RLock()
-	defer r.mu.RUnlock()
-	return len(r.books)
+	count := len(r.books)
+	r.mu.RUnlock()
+	return count
 }
