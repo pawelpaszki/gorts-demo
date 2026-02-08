@@ -10,11 +10,12 @@ import (
 	"github.com/pawelpaszki/gorts-demo/internal/model"
 )
 
+// TestE2E_CreateAndGetBook verifies the complete create and retrieve flow for books.
 func TestE2E_CreateAndGetBook(t *testing.T) {
 	ts := NewTestServer()
 	defer ts.Close()
 
-	// Create a book
+	// Create a book with all required fields
 	bookData := map[string]interface{}{
 		"id":        "e2e-book-1",
 		"title":     "E2E Test Book",
