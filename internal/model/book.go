@@ -37,3 +37,8 @@ func (b *Book) Validate() error {
 	}
 	return nil
 }
+
+// IsPublished returns true if the book has a publication date in the past.
+func (b *Book) IsPublished() bool {
+	return !b.PublishedAt.IsZero() && b.PublishedAt.Before(time.Now())
+}
