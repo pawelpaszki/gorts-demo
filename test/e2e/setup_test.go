@@ -72,3 +72,8 @@ func (ts *TestServer) Close() {
 func (ts *TestServer) URL() string {
 	return ts.Server.URL
 }
+
+// Client returns an HTTP client configured for the test server.
+func (ts *TestServer) Client() *http.Client {
+	return ts.Server.Client()
+}
